@@ -2,18 +2,19 @@ import Cart from './components/Cart';
 import Home from './components/Home';
 import Product from './components/Product';
 import Navbar from './components/Navbar';
+import { Routes, Route } from 'react-router-dom';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <div className="container">
-        <h1>Hello from container</h1>
-        <Cart />
-        <Home />
-        <Product />
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/product" element={<Product />} />
+      </Routes>
     </div>
   );
 }
