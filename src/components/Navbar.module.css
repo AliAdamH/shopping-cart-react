@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: hotpink;
+    padding: 1rem;
+    width: 100%;
+    position: fixed;
+    box-shadow: 0 0 1em rgba(0 0 0 / 0.3);
+    top: 0;
+}
+
+.navbar__links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+   
+}
+
+.navbar__logo {
+    padding: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
