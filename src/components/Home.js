@@ -9,7 +9,7 @@ const Home = () => {
           <span className="home__title__fancy"> Flowers</span> from all over the
           globe
         </h1>
-        <Link className="home__link" to="/product">
+        <Link className="home__link" to="/products">
           Explore
         </Link>
       </div>
