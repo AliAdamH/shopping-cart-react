@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Product from './Product';
-const ProductList = () => {
+const ProductList = (props) => {
   const [products, setProducts] = useState([]);
-
+  const sendToCart = (product) => {
+    props.addToCart(product);
+    console.log(product);
+  };
   useEffect(() => {
     setProducts([
       {
@@ -15,7 +18,7 @@ const ProductList = () => {
   return (
     <div className="container">
       {products.map((object, index) => {
-        return <Product key={index} name={object.name} />;
+        return <Product key={index} data={object} handleAddCart={sendToCart} />;
       })}
     </div>
   );

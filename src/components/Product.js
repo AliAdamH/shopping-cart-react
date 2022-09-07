@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import styles from './Product.module.css';
 import rose from '../images/rose.jpg';
-const Product = () => {
+const Product = ({ data, handleAddCart }) => {
+  const { id, name } = data;
   const [quantity, setQuantity] = useState(0);
   const [inCart, setInCart] = useState(false);
 
   const handleQuantityChange = (e) => {
     setQuantity(e.target.value);
+  };
+
+  const addSelfToCart = () => {
+    handleAddCart({ ...data, quantity });
   };
   return (
     <>
@@ -39,7 +44,9 @@ const Product = () => {
             />
           </div>
           <div className={styles.card__actions__add_cart}>
-            <button>Add to Cart</button>
+            <button type={'button'} onClick={addSelfToCart}>
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
