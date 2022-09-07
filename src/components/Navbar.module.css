@@ -1,12 +1,14 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: hotpink;
-    padding: 1rem;
+    background: linear-gradient(135deg, rgb(255, 168, 168) 10%, rgb(252, 255, 0) 100%); 
+    padding: 0.75rem;
     width: 100%;
     position: fixed;
     box-shadow: 0 0 1em rgba(0 0 0 / 0.3);
     top: 0;
+    height: 4rem; /* 64px nav */
+    z-index: 9999;
 }
 
 .navbar__links {
@@ -17,7 +19,7 @@
 }
 
 .navbar__logo {
-    padding: 0.75rem;
+    padding: 0.5rem;
     font-size: 1.5rem;
     font-weight: 900;
 }
