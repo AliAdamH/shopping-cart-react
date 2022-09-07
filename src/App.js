@@ -12,16 +12,29 @@ function App() {
   const addLineItem = (item) => {
     setLineItems((previous) => [...previous, item]);
   };
+
+  const addItem = (item) => {
+    let duplicateIndex = lineItems.findIndex(
+      (lineItem) => lineItem.id === item.id
+    );
+    duplicateIndex !== -1
+      ? updateDuplicate(duplicateIndex, item)
+      : addLineItem(item);
+  };
+
+  const updateDuplicate = (duplicateIndex, item) => {
+    let newItems = [...lineItems];
+    newItems[duplicateIndex].quantity += item.quantity;
+    setLineItems(newItems);
+  };
+
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart items={lineItems} />} />
-        <Route
-          path="/products"
-          element={<ProductList addToCart={addLineItem} />}
-        />
+        <Route path="/products" element={<ProductList addToCart={addItem} />} />
       </Routes>
     </div>
   );
