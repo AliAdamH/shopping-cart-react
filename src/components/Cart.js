@@ -24,8 +24,12 @@ const Cart = ({ items, removeLineItem }) => {
 
   return (
     <div className="container">
-      <h1> This is the shopping cart component</h1>
-      <div>
+      <h1
+        style={{ padding: '1rem', marginBottom: '1rem', textAlign: 'center' }}
+      >
+        Your shopping cart
+      </h1>
+      <div style={{ paddingBlock: '1rem' }}>
         {items.map((item, index) => {
           return (
             <LineItem
@@ -39,7 +43,15 @@ const Cart = ({ items, removeLineItem }) => {
           );
         })}
       </div>
-      <div>{totalAmount} Dolla Dolla's</div>
+      <div
+        style={{
+          borderTop: '3px dashed #fecd60',
+          padding: '1rem',
+          textAlign: 'end',
+        }}
+      >
+        Total : {totalAmount} Dolla Dolla's
+      </div>
     </div>
   );
 };
