@@ -7,7 +7,7 @@ const Product = ({ data, handleAddCart }) => {
   const [inCart, setInCart] = useState(false);
 
   const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
+    setQuantity(Number(e.target.value));
   };
 
   const addSelfToCart = () => {

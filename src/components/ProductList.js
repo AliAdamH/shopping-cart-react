@@ -11,6 +11,7 @@ const ProductList = (props) => {
       {
         id: 1,
         name: 'Hello there',
+        price: 9.99,
       },
     ]);
   }, []);

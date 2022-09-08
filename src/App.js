@@ -28,12 +28,22 @@ function App() {
     setLineItems(newItems);
   };
 
+  const removeLineItem = (id) => {
+    let index = lineItems.findIndex((lineItem) => lineItem.id === id);
+    let newItems = [...lineItems];
+    newItems.splice(index, 1);
+    setLineItems(newItems);
+  };
+
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart items={lineItems} />} />
+        <Route
+          path="/cart"
+          element={<Cart items={lineItems} removeLineItem={removeLineItem} />}
+        />
         <Route path="/products" element={<ProductList addToCart={addItem} />} />
       </Routes>
     </div>
