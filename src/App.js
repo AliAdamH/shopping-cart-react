@@ -35,6 +35,12 @@ function App() {
     setLineItems(newItems);
   };
 
+  const updateItem = (quantity, id) => {
+    let index = lineItems.findIndex((lineItem) => lineItem.id === id);
+    let newItems = [...lineItems];
+    newItems[index].quantity = quantity;
+    setLineItems(newItems);
+  };
   return (
     <div className="App">
       <Navbar />
@@ -42,7 +48,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/cart"
-          element={<Cart items={lineItems} removeLineItem={removeLineItem} />}
+          element={
+            <Cart
+              items={lineItems}
+              removeLineItem={removeLineItem}
+              handleItemQuantity={updateItem}
+            />
+          }
         />
         <Route path="/products" element={<ProductList addToCart={addItem} />} />
       </Routes>

@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import styles from './LineItem.module.css';
 
-const LineItem = ({ id, name, quantity, price, handleRemove }) => {
+const LineItem = ({
+  id,
+  name,
+  quantity,
+  price,
+  handleRemove,
+  updateParentQuantity,
+}) => {
   const [currQuantity, setCurrQuantity] = useState(quantity);
   const [total, setTotal] = useState(quantity * price);
 
   const handleQuantityChange = (e) => {
-    setCurrQuantity(Number(e.target.value));
+    let newQuantity = Number(e.target.value);
+    setCurrQuantity(newQuantity);
+    updateParentQuantity(newQuantity, id);
   };
 
   const removeSelf = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LineItem from './LineItem';
 
-const Cart = ({ items, removeLineItem }) => {
+const Cart = ({ items, removeLineItem, handleItemQuantity }) => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   const removeItem = (id) => {
@@ -18,8 +18,12 @@ const Cart = ({ items, removeLineItem }) => {
 
   const getTotalAmount = () => {
     return items
-      .map((item) => item.quantity)
+      .map((item) => item.quantity * item.price)
       .reduce((prev, curr) => prev + curr, 0);
+  };
+
+  const handleLineItemQuantityChange = (quantity, id) => {
+    handleItemQuantity(quantity, id);
   };
 
   return (
@@ -39,6 +43,7 @@ const Cart = ({ items, removeLineItem }) => {
               price={item.price}
               quantity={item.quantity}
               handleRemove={removeItem}
+              updateParentQuantity={handleLineItemQuantityChange}
             />
           );
         })}
