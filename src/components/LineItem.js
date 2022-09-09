@@ -30,18 +30,18 @@ const LineItem = ({
       <div className={styles.lineItem}>
         <div className={styles.lineItem__image}></div>
         <div className={styles.lineItem__infos}>
-          <p>
-            <small>Name</small>
-            <br /> {name}
+          <p className={styles.lineItem__infos__text}>
+            {/* <span>Product Name</span> */}
+            <span className={styles.productName}>{name}</span>
           </p>
-          <p>
-            <small>Unit price</small>
-            <br /> {price}
+          <p className={styles.lineItem__infos__text}>
+            <span>Unit price</span>
+            <span>${price}</span>
           </p>
         </div>
         <div className={styles.lineItem__actions}>
           <div className={styles.lineItem__actions__quantity}>
-            <label htmlFor="line_item_quantity">Quantity</label>
+            <label htmlFor="line_item_quantity"> 🌹 Quantity</label>
             <input
               type={'number'}
               id="line_item_quantity"
@@ -49,20 +49,21 @@ const LineItem = ({
               onChange={handleQuantityChange}
               value={currQuantity}
               className={styles.flowerQuantity}
+              min="1"
             />
           </div>
-          <button
-            type={'button'}
-            onClick={removeSelf}
-            className={styles.lineItem__actions__remove}
-          >
-            Remove
-          </button>
+          <p className={styles.lineItem__infos__text}>
+            <span>Total</span>
+            <span>${total}</span>
+          </p>
         </div>
-        <p className={styles.lineItem__total}>
-          <small>Total</small> <br />
-          {total}
-        </p>
+        <button
+          type={'button'}
+          onClick={removeSelf}
+          className={styles.lineItem__actions__remove}
+        >
+          Remove
+        </button>
       </div>
     </>
   );
