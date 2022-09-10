@@ -33,7 +33,14 @@ const Cart = ({ items, removeLineItem, handleItemQuantity }) => {
       >
         Your shopping cart
       </h1>
-      <div style={{ paddingBlock: '1rem' }}>
+      <div
+        style={{
+          paddingBlock: '1rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '2rem',
+        }}
+      >
         {items.map((item, index) => {
           return (
             <LineItem
@@ -55,7 +62,7 @@ const Cart = ({ items, removeLineItem, handleItemQuantity }) => {
           textAlign: 'end',
         }}
       >
-        Total : {totalAmount} Dolla Dolla's
+        Total : {totalAmount.toFixed(2)} Dolla Dolla's
       </div>
     </div>
   );

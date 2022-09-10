@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Product.module.css';
 import rose from '../images/rose.jpg';
 const Product = ({ data, handleAddCart }) => {
-  const { id, name } = data;
+  const { id, name, price } = data;
   const [quantity, setQuantity] = useState(0);
   const [inCart, setInCart] = useState(false);
 
@@ -21,8 +21,8 @@ const Product = ({ data, handleAddCart }) => {
           style={{ backgroundImage: `url(${rose})` }}
         ></div>
         <div className={styles.card__info}>
-          <p className={styles.card__info__title}>Hibiscus Rosa Sinensis</p>
-          <p className={styles.card__info__price}>$9.99 per unit</p>
+          <p className={styles.card__info__title}>{name}</p>
+          <p className={styles.card__info__price}>${price} per unit</p>
           <small style={{ color: 'darkgreen' }}>
             &#10003; Available for purchase
           </small>

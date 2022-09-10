@@ -54,7 +54,7 @@ const LineItem = ({
           </div>
           <p className={styles.lineItem__infos__text}>
             <span>Total</span>
-            <span>${total}</span>
+            <span>${total.toFixed(2)}</span>
           </p>
         </div>
         <button
