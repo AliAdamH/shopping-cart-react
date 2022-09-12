@@ -43,7 +43,7 @@ function App() {
   };
   return (
     <div className="App">
-      <Navbar />
+      <Navbar cartItemsCount={lineItems.length} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
