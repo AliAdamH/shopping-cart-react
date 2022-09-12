@@ -26,10 +26,6 @@ const Product = ({ data, handleAddCart }) => {
           <small style={{ color: 'darkgreen' }}>
             &#10003; Available for purchase
           </small>
-          <p className={styles.card__info__description}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt
-          </p>
         </div>
         <div className={styles.card__actions}>
           <div className={styles.card__actions__quantity}>
