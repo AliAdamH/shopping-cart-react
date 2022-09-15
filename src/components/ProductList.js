@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Product from './Product';
+import { Flowers } from './FlowerData';
+
 const ProductList = (props) => {
   const [products, setProducts] = useState([]);
   const sendToCart = (product) => {
@@ -7,23 +9,7 @@ const ProductList = (props) => {
     console.log(product);
   };
   useEffect(() => {
-    setProducts([
-      {
-        id: 1,
-        name: 'Hibiscus Rosa Sinensis',
-        price: 9.99,
-      },
-      {
-        id: 2,
-        name: 'Iris Sibrica',
-        price: 19.99,
-      },
-      {
-        id: 3,
-        name: 'Rosa Rubiginosa',
-        price: 5.99,
-      },
-    ]);
+    setProducts([...Flowers]);
   }, []);
 
   return (

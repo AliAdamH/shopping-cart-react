@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Product.module.css';
-import rose from '../images/rose.jpg';
+
 const Product = ({ data, handleAddCart }) => {
-  const { id, name, price } = data;
+  const { id, name, price, image } = data;
   const [quantity, setQuantity] = useState(0);
   const [inCart, setInCart] = useState(false);
 
@@ -16,10 +16,14 @@ const Product = ({ data, handleAddCart }) => {
   return (
     <>
       <div className={styles.card}>
-        <div
-          className={styles.card__image}
-          style={{ backgroundImage: `url(${rose})` }}
-        ></div>
+        <div className={styles.card__image__container}>
+          <img
+            src={image}
+            alt={name}
+            className={styles.card__image}
+            loading="lazy"
+          />
+        </div>
         <div className={styles.card__info}>
           <p className={styles.card__info__title}>{name}</p>
           <p className={styles.card__info__price}>${price} per unit</p>
